@@ -18,9 +18,9 @@ int main() {
 	
 	//ConsoleColor::Main();
 	//SimpleClass::Main();
-	MyString::Main();
+	//MyString::Main();
 	//StringLiterals::Main();
-	//TimedButtonPressed::Main();
+	TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
 
 	//======================================================================
