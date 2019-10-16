@@ -7,7 +7,7 @@
 #include "StringLiterals.h"
 #include "TimedButtonPressed.h"
 #include "UnionTypePunning.h"
-
+#include "Knapsack.h"
 
 int main() {
 	// Start the timer
@@ -20,8 +20,9 @@ int main() {
 	//SimpleClass::Main();
 	//MyString::Main();
 	//StringLiterals::Main();
-	TimedButtonPressed::Main();
+	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
+	Knapsack::Main();
 
 	//======================================================================
 
