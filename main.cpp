@@ -7,7 +7,9 @@
 #include "StringLiterals.h"
 #include "TimedButtonPressed.h"
 #include "UnionTypePunning.h"
+
 #include "Knapsack.h"
+#include "LevenshteinDistance.h"
 
 int main() {
 	// Start the timer
@@ -22,7 +24,8 @@ int main() {
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
-	Knapsack::Main();
+	//Knapsack::Main();
+	LevenshteinDistance::Main();
 
 	//======================================================================
 
