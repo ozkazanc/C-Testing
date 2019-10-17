@@ -9,63 +9,67 @@ namespace MyString{
 	class MyString{
 	public:
 		MyString(const std::string& src = "")
-			:str(nullptr), length(0) {
+			:str(nullptr), length(0) 
+		{
+			std::cout << "In default constructor: " << this << std::endl;
 
-			unsigned int len = 0;
-			while (src[len] != '\0')
-				len++;
-
-			length = len;
-
+			length = (unsigned int)src.length();
 			str = new char[length + 1];
+
 			memcpy(str, src.c_str(), length);
 			str[length] = '\0';
-			std::cout << "In default constructor: " << this << std::endl;
 		}
 
-		~MyString() {
-			delete[] str;
+		~MyString() 
+		{
 			std::cout << "In destructor: " << this << std::endl;
+			delete[] str;
 		}
 
-		MyString(const MyString& copy){
+		MyString(const MyString& copy)
+		{
+			std::cout << "In copy constructor: " << this << std::endl;
+			
 			length = copy.length;
-
 			str = new char[copy.length + 1];
+
 			memcpy(str, copy.str, length);
 			str[length] = '\0';
-			std::cout << "In copy constructor: " << this << std::endl;
 		}
 
-		MyString(MyString&& rvalue){
-			length = rvalue.length;
-			str = rvalue.str;
-			rvalue.str = nullptr;
+		MyString(MyString&& rvalue)
+			:MyString()
+		{
 			std::cout << "In move constructor: from: " << &rvalue << " to: " << this << std::endl;
+			swap(*this, rvalue);
 		}
 
-		MyString& operator=(MyString rhs){
-			std::swap(str, rhs.str);
-			std::swap(length, rhs.length);
+		MyString& operator=(MyString rhs)
+		{
 			std::cout << "In assignment operator: " << this << std::endl;
+			swap(*this, rhs);
 
 			return *this;
 		}
 
-		friend const MyString operator+(const MyString& lhs, const MyString& rhs){
-			MyString n;
-			n.length = lhs.length + rhs.length;
-
-			n.str = new char[n.length + 1];
-			memcpy(n.str, lhs.str, lhs.length);
-			memcpy(&n.str[lhs.length], rhs.str, rhs.length + 1);
-			return n;
+		friend void swap(MyString& a, MyString& b) 
+		{
+			std::cout << "Swapping: " << &a << " and " << &b << std::endl;
+			
+			using std::swap;
+			swap(a.str, b.str);
+			swap(a.length, b.length);
 		}
 
-		friend std::ostream& operator<<(std::ostream& out, const MyString& str_){
+		friend const MyString operator+(const MyString& lhs, const MyString& rhs)
+		{
+			return MyString(std::string(lhs.str) + std::string(rhs.str));
+		}
+
+		friend std::ostream& operator<<(std::ostream& out, const MyString& str_)
+		{
 			out << "In: " << &str_;
-			if (str_.str == nullptr) out << "\tEmpty\n";
-			else out << "\tData: " << str_.str << "\tlength: " << str_.length << '\n';
+			out << "\tData: " << str_.str << "\tlength: " << str_.length << '\n';
 			return out;
 		}
 
@@ -73,7 +77,6 @@ namespace MyString{
 		char* str;
 		unsigned int length;
 	};
-
 
 	void Main();
 
