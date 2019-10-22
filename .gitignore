@@ -1,8 +1,12 @@
 #Directories
 /Debug
 /x64
+/bin
+/bin-inter
 
 #Files
+.vs
+*.sln
 *.vcxproj
 *.filters
 *.user
