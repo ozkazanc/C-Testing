@@ -13,7 +13,7 @@ namespace CTCI {
 
 	// Given a string and its true lenghtr replace all spaces(' ') with "%20",
 	// assume you have enough space at the end of string as buffer
-	std::string& URLify(std::string& src, int lenght);
+	std::string URLify(const std::string& src, int lenght);
 
 	// Given a string, determine if the string is a permutation of a palindrome
 	bool PermutationPalindrome(const std::string& src);
