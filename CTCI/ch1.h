@@ -23,5 +23,5 @@ namespace CTCI {
 	bool OneAway(const std::string& a, const std::string& b);
 
 
-	void Main();
+	void Ch1_Main();
 }

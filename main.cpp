@@ -11,6 +11,8 @@
 #include "Knapsack.h"
 #include "LevenshteinDistance.h"
 
+#include "CTCI/ch1.h"
+
 int main() {
 	// Start the timer
 	Timer timer;
@@ -20,12 +22,14 @@ int main() {
 	
 	//ConsoleColor::Main();
 	//SimpleClass::Main();
-	MyString::Main();
+	//MyString::Main();
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
+
+	CTCI::Ch1_Main();
 
 	//======================================================================
 
