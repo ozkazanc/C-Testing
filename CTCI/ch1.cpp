@@ -49,8 +49,32 @@ namespace CTCI {
 		PrintMatrix(mat90);
 		std::cout << std::endl;
 	// Q8 ================================================================================================
+		std::vector<std::vector<int>> mat1{ {1 , 2, 3, 4, 5},
+											{6 , 7, 8, 9,10},
+											{11,12, 0,14,15},
+											{16,17,18,19,20},
+											{21,22,23,24, 0} };
+		std::vector<std::vector<int>> mat2{ {1 , 2, 3, 4, 5},
+											{0 , 7, 0, 9,10},
+											{11,12,13,14,15},
+											{0 ,17, 0,19,20},
+											{21,22,23,24,25} };
+		PrintMatrix(mat1);
+		PrintMatrix(mat2);
+		ZeroMatrix(mat1);
+		ZeroMatrix(mat2);
+		PrintMatrix(mat1);
+		PrintMatrix(mat2);
+		std::cout << std::endl;
 	// Q9 ================================================================================================
+		std::vector<std::string> rot1{ "waterbottle", "callstack", "debug", "recursion", "renderer" };
+		std::vector<std::string> rot2{ "terbottlewa", "lstackcal", "dbuge", "resioncur", "reredner" };
+		for (size_t i = 0; i < rot1.size(); i++) {
+			std::cout << rot1[i] << " and " << rot2[i] << " are " << (StringRotation(rot1[i], rot2[i]) ? "rotations!" : "not rotations") << '\n';
+		}
+		std::cout << std::endl;
 
+		std::cout << "Chapter 1 questions are completed!" << std::endl;
 	}
 
 	bool IsUnique(const std::string& str) {
@@ -225,10 +249,11 @@ namespace CTCI {
 				std::cout << col;
 			std::cout << '\n';
 		}
+		std::cout << std::endl;
 	}
 
 	void RotateMatrix90Degrees(std::vector<std::vector<int>>& mat){
-		unsigned int N = mat.size();
+		unsigned int N = (unsigned int)mat.size();
 		// Rotate the inner layers
 		for (unsigned int x = 0; x < N / 2; x++) {
 			for (unsigned int y = x; y < N - 1 - x; y++) {
@@ -247,11 +272,89 @@ namespace CTCI {
 		// O(1) space, no additional space is neededs
 	}
 
-	void ZeroMatrix(std::vector<std::vector<int>>& matrix){
-	
+	void ZeroMatrix(std::vector<std::vector<int>>& mat){
+		// We will use the first row and column as temp spaces to store, where we have seen 0s.
+
+		bool rowHasZero = false;
+		bool columnHasZero = false;
+
+		// Need to remember if we need to nullify the first row
+		for (unsigned int j = 0; j < mat[0].size(); j++) {
+			if (mat[0][j] == 0) {
+				rowHasZero = true;
+				break;
+			}
+		}
+
+		// Need to remember if we need to nullify the first column
+		for (unsigned int i = 0; i < mat.size(); i++) {
+			if (mat[i][0] == 0) {
+				columnHasZero = true;
+				break;
+			}
+		}
+
+		// Chack in the rest of the matrix for 0s and project them onto the first row and column
+		for (unsigned int i = 1; i < mat.size(); i++) {
+			for (unsigned int j = 1; j < mat[0].size(); j++) {
+				if (mat[i][j] == 0) {
+					mat[i][0] = 0;
+					mat[0][j] = 0;
+				}
+			}
+		}
+
+		// Loop through the 1st column and nullfiy the entire row.
+		// Note: Omit the 1st row since that row will be taken care of with our flag.
+		for (unsigned int i = 1; i < mat.size(); i++) {
+			if (mat[i][0] == 0) {
+				for (unsigned int j = 0; j < mat[i].size(); j++)
+					mat[i][j] = 0;
+			}
+		}
+
+		// Loop through the 1st row and nullfiy the entire column.
+		// Note: Omit the 1st column since that column will be taken care of with our flag.
+		for (unsigned int j = 1; j < mat[0].size(); j++) {
+			if (mat[0][j] == 0) {
+				for (unsigned int i = 0; i < mat.size(); i++)
+					mat[i][j] = 0;
+			}
+		}
+
+		// Take care of the 1st row if necessary
+		if (rowHasZero) {
+			for (unsigned int j = 0; j < mat[0].size(); j++)
+				mat[0][j] = 0;
+		}
+
+		// Take care of the 1st column if necessary
+		if (columnHasZero) {
+			for (unsigned int i = 0; i < mat.size(); i++)
+				mat[i][0] = 0;
+		}
+
+		return;
+
+		// O(n^2) time, where N is the size of the matrix
+		// O(1) space, this algorithm is in place and requires no extra memory
 	}
 
 	bool StringRotation(const std::string& a, const std::string& b){
-		return false;
+		if (a.length() != b.length()) return false;
+		
+		// If 2 strings are rotations of one another there exists a point,
+		// where they can be cut into 2 parts. (x|y)
+		// ex. s1 = "waterbottle" and s2 = "terbottlewa"
+		// x = wa, y = terbottle; where s1 = x + y, and s2 = y + x
+		// So, s1 + s1 = x + y + x + y,
+		// turns into s1 + s1 = x + s2 + y, 
+		// meaning that s2 will always be a substring of s1 + s1
+		// if s1 and s2 are rotations of one another.
+		std::string cat = a + a;
+		return cat.find(b) != std::string::npos;
+
+		// O(x) time, where x is equal to the the time complexity of the std::string::find function which is just a specification and does not enforce implementation details.
+		// O(n) space, where n is twice the size of the given string.
 	}
 }
