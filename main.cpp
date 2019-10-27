@@ -11,8 +11,9 @@
 #include "Knapsack.h"
 #include "LevenshteinDistance.h"
 
+#include "LinkedList.h"
 #include "CTCI/ch1.h"
-
+#include <list>
 int main() {
 	// Start the timer
 	Timer timer;
@@ -29,7 +30,42 @@ int main() {
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
 
-	CTCI::Ch1_Main();
+	//CTCI::Ch1_Main();
+	LinkedList<int> list;
+	list.PushFront(3);
+	std::cout << list.Size() << std::endl;
+	std::cout << list.Front() << std::endl;
+	std::cout << list.Back() << std::endl;
+	std::cout << list << std::endl;
+	
+	list.Delete(0);
+	std::cout << list.Size() << std::endl;
+	std::cout << list << std::endl;
+	
+	list.PushBack(4);
+	std::cout << list.Size() << std::endl;
+	std::cout << list.Front() << std::endl;
+	std::cout << list.Back() << std::endl;
+	std::cout << list << std::endl;
+
+	list.PushFront(5);
+	list.PushBack(3);
+	std::cout << list.Size() << std::endl;
+	std::cout << list.Front() << std::endl;
+	std::cout << list.Back() << std::endl;
+	std::cout << list << std::endl;
+
+	LinkedList<int> list2(list);
+	std::cout << list2.Size() << std::endl;
+	std::cout << list2.Front() << std::endl;
+	std::cout << list2.Back() << std::endl;
+	std::cout << list2 << std::endl;
+
+	list.Delete(2);
+	std::cout << list.Size() << std::endl;
+	std::cout << list.Front() << std::endl;
+	std::cout << list.Back() << std::endl;
+	std::cout << list << std::endl;
 
 	//======================================================================
 
