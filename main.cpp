@@ -1,19 +1,21 @@
 #include <iostream>
 #include "Timer.h"
 
-#include "ConsoleColor.h"
-#include "SimpleClass.h"
-#include "MyString.h"
-#include "StringLiterals.h"
-#include "TimedButtonPressed.h"
-#include "UnionTypePunning.h"
+#include "Tests/ConsoleColor.h"
+#include "Tests/SimpleClass.h"
+#include "Tests/StringLiterals.h"
+#include "Tests/TimedButtonPressed.h"
+#include "Tests/UnionTypePunning.h"
 
-#include "Knapsack.h"
-#include "LevenshteinDistance.h"
+#include "Algorithms/Knapsack.h"
+#include "Algorithms/LevenshteinDistance.h"
 
-#include "LinkedList.h"
+#include "Containers/MyString.h"
+#include "Containers/LinkedList.h"
+
 #include "CTCI/ch1.h"
-#include <list>
+#include "CTCI/ch2.h"
+
 int main() {
 	// Start the timer
 	Timer timer;
@@ -23,49 +25,18 @@ int main() {
 	
 	//ConsoleColor::Main();
 	//SimpleClass::Main();
-	//MyString::Main();
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
 
+	//MyString::Main();
+	//LinkedListTest::Main();
+
 	//CTCI::Ch1_Main();
-	LinkedList<int> list;
-	list.PushFront(3);
-	std::cout << list.Size() << std::endl;
-	std::cout << list.Front() << std::endl;
-	std::cout << list.Back() << std::endl;
-	std::cout << list << std::endl;
-	
-	list.Delete(0);
-	std::cout << list.Size() << std::endl;
-	std::cout << list << std::endl;
-	
-	list.PushBack(4);
-	std::cout << list.Size() << std::endl;
-	std::cout << list.Front() << std::endl;
-	std::cout << list.Back() << std::endl;
-	std::cout << list << std::endl;
+	CTCI::Ch2_Main();
 
-	list.PushFront(5);
-	list.PushBack(3);
-	std::cout << list.Size() << std::endl;
-	std::cout << list.Front() << std::endl;
-	std::cout << list.Back() << std::endl;
-	std::cout << list << std::endl;
-
-	LinkedList<int> list2(list);
-	std::cout << list2.Size() << std::endl;
-	std::cout << list2.Front() << std::endl;
-	std::cout << list2.Back() << std::endl;
-	std::cout << list2 << std::endl;
-
-	list.Delete(2);
-	std::cout << list.Size() << std::endl;
-	std::cout << list.Front() << std::endl;
-	std::cout << list.Back() << std::endl;
-	std::cout << list << std::endl;
 
 	//======================================================================
 

@@ -1,7 +1,7 @@
 #include "ch1.h"
 #include <iostream>
 #include <unordered_map>
-#include "LevenshteinDistance.h"
+#include "../Algorithms/LevenshteinDistance.h"
 namespace CTCI {
 
 	void Ch1_Main() {
