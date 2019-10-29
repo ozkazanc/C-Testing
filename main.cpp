@@ -2,6 +2,7 @@
 #include "Timer.h"
 
 #include "Tests/ConsoleColor.h"
+#include "Tests/ExceptionHandlingTest.h"
 #include "Tests/SimpleClass.h"
 #include "Tests/StringLiterals.h"
 #include "Tests/TimedButtonPressed.h"
@@ -24,10 +25,12 @@ int main() {
 	//======================================================================
 	
 	//ConsoleColor::Main();
+	//ExceptionHandlingTest::Main();
 	//SimpleClass::Main();
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
+
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
 

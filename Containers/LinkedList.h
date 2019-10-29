@@ -97,6 +97,9 @@ public:
 
 	void Delete(int index) 
 	{
+		if (index < 0 || index >= size)
+			throw index;
+
 		Node* cur = head;
 		while (cur != nullptr) {
 			if (index == 0) {
@@ -128,6 +131,9 @@ public:
 
 	T& operator[](int index) const
 	{
+		if (index < 0 || index >= size)
+			throw index;
+
 		Node* cur = head;
 		while (cur != nullptr) {
 			if (index == 0) {
@@ -139,12 +145,14 @@ public:
 		return last->data;
 	}
 
-	inline int Size() const { return size; }
-	inline bool Empty() const { return size == 0; }
+	inline int Size() const noexcept { return size; }
+	inline bool Empty() const noexcept { return size == 0; }
 	inline T& Front() const { return head->data; }
 	inline T& Back() const { return last->data; }
 
-	friend void swap(LinkedList& lhs, LinkedList& rhs) {
+	friend void swap(LinkedList& lhs, LinkedList& rhs) noexcept(noexcept(swap(lhs.head, rhs.head)) &&
+																noexcept(swap(lhs.size, rhs.size)))
+	{
 		using std::swap;
 		swap(lhs.head, rhs.head);
 		swap(lhs.last, rhs.last);

@@ -14,10 +14,10 @@ namespace CTCI {
 	void RemoveDuplicates(std::list<int>& list);
 
 	// Given a singly linked list, return  the kth to the last element
-	int KthToTheLast(const std::list<int>& list);
+	int KthToTheLast(const std::list<int>& list, int k);
 
 	// Given only a middle node, delete that node from the linked list
-	void DeleteMiddleNode(int node);
+	void DeleteMiddleNode(std::list<int>& list, int node);
 
 	// Partition
 
