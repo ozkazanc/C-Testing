@@ -37,7 +37,7 @@ namespace MyString{
 			str[length] = '\0';
 		}
 
-		MyString(MyString&& rvalue)
+		MyString(MyString&& rvalue) noexcept
 			:MyString()
 		{
 			std::cout << "In move constructor: from: " << &rvalue << " to: " << this << std::endl;
@@ -52,7 +52,7 @@ namespace MyString{
 			return *this;
 		}
 
-		friend void swap(MyString& a, MyString& b) 
+		friend void swap(MyString& a, MyString& b) noexcept
 		{
 			std::cout << "Swapping: " << &a << " and " << &b << std::endl;
 			

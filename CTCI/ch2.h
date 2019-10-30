@@ -24,13 +24,13 @@ namespace CTCI {
 	// Do addition to numbers where numbers are represented as linked list
 	// First in  LSD-First (Least Significant Digit)
 	// Second in MSD-First (Most Significcan Digit)
-	// ex LSD-First,  2 -> 7 -> 0 and 3 -> 4 -> 1, ie. 72 + 143
+	// ex LSD-First,  2 -> 7 and 3 -> 4 -> 1, ie. 72 + 143
 	// returns 5 -> 1 -> 2, ie. 215
 	// ex MSD-First, 0->7->2 and 1->4->3 equals 2->1->5
-	std::list<int> AddLinkedLists(const std::list<int>& a, const std::list<int>& b);
+	std::list<int> AddLinkedLists(std::list<int> a, std::list<int> b);
 
 	// Given a singly linked list determine if it is a palindrome
-	bool Palindrome(const std::list<int>& list);
+	bool Palindrome(const std::list<char>& list);
 
 	// Given 2 lists, determine if they intersect and return the intersecting node
 	int Intersect(const std::list<int>& a, const std::list<int>& b);
