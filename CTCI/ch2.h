@@ -32,6 +32,24 @@ namespace CTCI {
 	// Given a singly linked list determine if it is a palindrome
 	bool Palindrome(const std::list<char>& list);
 
+	// Disclaimer
+	// These next 2 questions are about the address of the linked lists and how they are laid out in memory.
+	// However, since std::list does not allow you to create improper linked lists (with cycles),
+	// there is no easy way to write test cases for them to check the correctness of these functions.
+	// Therefore I will use unique int values as if they are representing the node ids of the linked list
+	// The data stored in the linked lists will "act" as the address of the linked list
+	
+	// Even though the linked lists are not correctly represented, the algorithms implemented
+	// explain and implement clearly what needs to be done in order to achieve desired functionality.
+
+	// Eg. 1->2->3->4->5 and 9->8->3 lists "intersect" at node 3. 
+	// (Even though only the data they contain are the same and the actual linked list in memory do NOT intersect)
+
+	// Eg. 1->2->3->2 list has a loop starting at node 2.
+	// (Even though only the data they contain are looping and the actual linked list in memory does NOT have a loop)
+	// The reason for the extra nodes at the end after loop is to simulate the effect of the loop as well as giving
+	// std::list iterator enough time to realize that there is a loop in the list.
+
 	// Given 2 lists, determine if they intersect and return the intersecting node
 	int Intersect(const std::list<int>& a, const std::list<int>& b);
 
