@@ -2,6 +2,7 @@
 
 #include <unordered_map>
 #include <algorithm>
+#include <functional>
 
 namespace CTCI {
 	void Ch2_Main() {
@@ -9,6 +10,7 @@ namespace CTCI {
 		std::vector<std::list<int>> dups{ { 1,1,2,3,4,5,3,2,6,6 },{},{1,1,1,1},{1,2,3,4,5},{2,1,1,2} };
 		std::cout << dups << '\n';
 		std::for_each(dups.begin(), dups.end(), RemoveDuplicates);
+		std::cout << "After removing duplicates\n";
 		std::cout << dups << std::endl;
 		// Q2 ================================================================================================
 		std::vector<std::list<int>> kth{ { 1,1,2,3,4,5,3,2,6,6 },{1},{1,1,1,1},{1,2,3,4,5},{2,1,1,2},{5,7} };
@@ -20,11 +22,17 @@ namespace CTCI {
 		std::vector<int> middle{ 2, 0, 5, 3, 2, 0 };
 		for (unsigned int i = 0; i < middle.size(); i++) {
 			std::cout << lists3[i] << '\n';
+			std::cout << "After deleting " << middle[i] << " index\n";
 			DeleteMiddleNode(lists3[i], middle[i]);
 			std::cout << lists3[i] << '\n';
 		}
 		std::cout << std::endl;
 		// Q4 ================================================================================================
+		std::vector<std::list<int>> partition{ { 1,1,2,3,4,5,3,2,6,6 },{7,2,8,1,9,5,3,4,7},{1,8,1,1},{1,2,9,4,5},{7,1,6,2} };
+		std::cout << partition << '\n';
+		std::for_each(partition.begin(), partition.end(), std::bind(Partition, std::placeholders::_1, 5));
+		std::cout << "After partition with value 5\n";
+		std::cout << partition << std::endl;
 		// Q5 ================================================================================================
 		std::vector<std::list<int>> as{ { 2,7,0 },{9,9},{1,1,1,1},{1,2,3},{9,1},{5,7} };
 		std::vector<std::list<int>> bs{ { 3,4,1 },{1,0},{1,1,1,1},{1,2,3},{0,7},{5,7} };
@@ -51,6 +59,7 @@ namespace CTCI {
 			std::cout << elem << " has a loop starting at node " << LoopBeginning(elem) << '\n';
 		std::cout << std::endl;
 		
+		std::cout << "Chapter 2 questions are completed!" << std::endl;
 	}
 	void RemoveDuplicates(std::list<int>& list) {
 		
@@ -126,7 +135,25 @@ namespace CTCI {
 		// O(1) space, in place algorithm
 	}
 
-	// Partition
+	void Partition(std::list<int>& list, int x) {
+		std::list<int> smaller;
+		std::list<int> larger;
+
+		for (const auto& elem : list) {
+			if (elem < x)	smaller.push_back(elem);
+			else			larger.push_back(elem);
+		}
+
+		// Concatinate smaller and larger lists
+		smaller.insert(smaller.end(), larger.begin(), larger.end());
+
+		// Swap the new list with the old one
+		list.swap(smaller);
+
+		// O(n) time, where n is the number of elements, we loop to check each element to see if they are smaller or larger than partition value
+		// O(n) space, we create a temp list to hold the partition while we are looping the original list.
+	}
+
 
 	int sumLists(const std::list<int>& a, const std::list<int>& b, std::list<int>& result) {
 		if (a.empty()) return 0;

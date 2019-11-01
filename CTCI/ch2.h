@@ -19,7 +19,12 @@ namespace CTCI {
 	// Given only a middle node, delete that node from the linked list
 	void DeleteMiddleNode(std::list<int>& list, int node);
 
-	// Partition
+	// Given a linked list and a value x, create a partition where all elements less than x
+	// are to the left and all elements greater or equal to x are to the right 
+	// (elements equal to x do not have to be in the middle)
+	// eg. 2->3->6->5->8->2->1->5 value 5
+	//	   2->3->2->1->6->5->8->5
+	void Partition(std::list<int>& list, int x);
 
 	// Do addition to numbers where numbers are represented as linked list
 	// First in  LSD-First (Least Significant Digit)
