@@ -44,7 +44,6 @@ public:
 	}
 
 	LinkedList(std::initializer_list<T> list) 
-		:LinkedList()
 	{
 		for(const auto& elem : list){
 			PushBack(elem);

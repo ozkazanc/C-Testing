@@ -13,6 +13,7 @@
 
 #include "Containers/MyString.h"
 #include "Containers/LinkedList.h"
+#include "Containers/Stack.h"
 
 #include "CTCI/ch1.h"
 #include "CTCI/ch2.h"
@@ -36,10 +37,10 @@ int main() {
 
 	//MyString::Main();
 	//LinkedListTest::Main();
+	StackTesting::Main();
 
 	//CTCI::Ch1_Main();
-	CTCI::Ch2_Main();
-
+	//CTCI::Ch2_Main();
 
 	//======================================================================
 
