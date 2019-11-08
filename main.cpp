@@ -14,9 +14,11 @@
 #include "Containers/MyString.h"
 #include "Containers/LinkedList.h"
 #include "Containers/Stack.h"
+#include "Containers/Trie.h"
 
 #include "CTCI/ch1.h"
 #include "CTCI/ch2.h"
+#include "CTCI/ch3.h"
 
 int main() {
 	// Start the timer
@@ -37,11 +39,14 @@ int main() {
 
 	//MyString::Main();
 	//LinkedListTest::Main();
-	StackTesting::Main();
+	//StackTesting::Main();
+	TrieTest::Main();
 
 	//CTCI::Ch1_Main();
 	//CTCI::Ch2_Main();
+	//CTCI::Ch3_Main();
 
+	
 	//======================================================================
 
 	// Get the final time
