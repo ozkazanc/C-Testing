@@ -6,6 +6,10 @@ Trie::Trie()
 	children{nullptr}
 {}
 
+Trie::~Trie() {
+	Destroy();
+}
+
 void Trie::Insert(const std::string& str) {
 	if (str.length() == 0) {
 		isLeaf = true;
@@ -111,5 +115,15 @@ namespace TrieTest {
 
 		std::cout << trie.Empty() << " ";
 		std::cout << trie.Find("h") << " ";
+	}
+}
+
+void Trie::Destroy() {
+	for (int i = 0; i < CHAR_SET; i++) {
+		if (children[i]) {
+			children[i]->Destroy();
+			delete children[i];
+			children[i] = nullptr;
+		}
 	}
 }
