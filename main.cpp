@@ -7,6 +7,7 @@
 #include "Tests/StringLiterals.h"
 #include "Tests/TimedButtonPressed.h"
 #include "Tests/UnionTypePunning.h"
+#include "Tests/RegularExpressionsTest.h"
 
 #include "Algorithms/Knapsack.h"
 #include "Algorithms/LevenshteinDistance.h"
@@ -33,6 +34,7 @@ int main() {
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
+	RegularExpressionsTest::Main();
 
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
@@ -40,7 +42,7 @@ int main() {
 	//MyString::Main();
 	//LinkedListTest::Main();
 	//StackTesting::Main();
-	TrieTest::Main();
+	//TrieTest::Main();
 
 	//CTCI::Ch1_Main();
 	//CTCI::Ch2_Main();
