@@ -8,6 +8,7 @@
 #include "Tests/TimedButtonPressed.h"
 #include "Tests/UnionTypePunning.h"
 #include "Tests/RegularExpressionsTest.h"
+#include "Tests/UserDefinedConversion.h"
 
 #include "Algorithms/Knapsack.h"
 #include "Algorithms/LevenshteinDistance.h"
@@ -34,7 +35,8 @@ int main() {
 	//StringLiterals::Main();
 	//TimedButtonPressed::Main();
 	//UnionTypePunning::Main();
-	RegularExpressionsTest::Main();
+	//RegularExpressionsTest::Main();
+	UserDefinedConversion::Main();
 
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
