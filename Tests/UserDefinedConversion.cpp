@@ -23,6 +23,8 @@ namespace UserDefinedConversion {
 		game.res = Result::Win;
 		std::cout << (char)game << std::endl;
 
+		//int y = char(game);
+
 		// Implicit conversion is not allowed to due to 'explicit' keyword
 		// int y = game;				// does not compile
 		// int y = (int)game			// does not compile		
