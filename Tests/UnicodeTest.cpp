@@ -4,6 +4,7 @@
 #include <fcntl.h>
 namespace UnicodeTesting
 {
+	// If you need to use Unicode use a library like ICU
 	void Main() {
 
 		// In order to print unicode literals to the console we also need to change the encoding of console to utf-8 or utf-16.

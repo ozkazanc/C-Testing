@@ -10,6 +10,7 @@
 #include "Tests/RegularExpressionsTest.h"
 #include "Tests/UserDefinedConversion.h"
 #include "Tests/UnicodeTest.h"
+#include "Tests/CachePerformanceTest.h"
 
 #include "Algorithms/Knapsack.h"
 #include "Algorithms/LevenshteinDistance.h"
@@ -38,7 +39,8 @@ int main() {
 	//UnionTypePunning::Main();
 	//RegularExpressionsTest::Main();
 	//UserDefinedConversion::Main();
-	UnicodeTesting::Main();
+	//UnicodeTesting::Main();
+	CachePerformanceTest::Main();
 
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
