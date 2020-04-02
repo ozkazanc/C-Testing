@@ -11,6 +11,7 @@
 #include "Tests/UserDefinedConversion.h"
 #include "Tests/UnicodeTest.h"
 #include "Tests/CachePerformanceTest.h"
+#include "Tests/AssemblyTest.h"
 
 #include "Algorithms/Knapsack.h"
 #include "Algorithms/LevenshteinDistance.h"
@@ -40,7 +41,8 @@ int main() {
 	//RegularExpressionsTest::Main();
 	//UserDefinedConversion::Main();
 	//UnicodeTesting::Main();
-	CachePerformanceTest::Main();
+	//CachePerformanceTest::Main();
+	AssemblyTest::Main();
 
 	//Knapsack::Main();
 	//LevenshteinDistance::Main();
